@@ -1,0 +1,67 @@
+
+import { Camera, Images } from 'lucide-react';
+import React, { useRef } from "react";
+
+const InspectionActions = () => {
+
+    // for phone
+    // const cameraInputRef = useRef(null);
+
+    // const openCamera = () => {
+    //     cameraInputRef.current?.click();
+    // };
+    const videoRef = useRef(null);
+
+    const openCamera = async () => {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({
+                video: true,
+            });
+
+            videoRef.current.srcObject = stream;
+        } 
+        catch (error) {
+            console.log("Camera error:", error);
+        }
+    };
+    return (
+        <div className='  shrink-0 sticky bottom-0 '>
+
+            <div className='mb-3 px-2 pt-2  text-[16px] font-semibold text-gray-900'>Start Inspections</div>
+            <div className='flex justify-center items-center  mb-3 mx-4 gap-4 mr-7'>
+                <div className='flex items-center  gap-4 rounded-full px-4 bg-black text-white h-18 w-55' >
+                    <Images size={34} strokeWidth={1.5} />
+                    <div>Upload Images</div>
+                </div>
+
+
+                <button
+                    onClick={openCamera}
+                    className="flex h-18 w-18 items-center justify-center rounded-full bg-primary"
+                >
+                    <Camera size={34} />
+                </button>
+               
+                <input
+                    // ref={cameraInputRef}
+                    ref={videoRef}
+                    type="file"
+                    accept="image/*"
+                    capture="environment"
+                    className="hidden"
+                />
+
+            </div>
+               {/* <div className="h-[500px] w-full">
+        <video
+          ref={videoRef}
+          autoPlay
+          playsInline
+          className="h-full w-full object-cover"
+        />
+      </div> */}
+        </div>
+    )
+}
+
+export default InspectionActions
