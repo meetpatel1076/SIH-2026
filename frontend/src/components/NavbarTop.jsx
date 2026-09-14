@@ -3,7 +3,7 @@ import { Bell, UserRound } from 'lucide-react';
 
 const NavbarTop = () => {
     return (
-        <div className='flex justify-between my-2 mx-1'>
+        <div className='flex justify-between my-4 mx-1'>
             <div className='bg-red-30 flex justify-center gap-2 items-center '>
                 <div ><img className='h-10' src="/MainLogo.png" alt="" /></div>
                 <div>
