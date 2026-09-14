@@ -1,20 +1,16 @@
 import React from "react";
 import { Plus } from "lucide-react";
 
-const ImageThumbnail = () => {
+const ImageThumbnail = ({ image }) => {
   return (
-    <div className='flex gap-3 mx-4 my-1'>
-      <div className='w-20 h-20 rounded-xl border-2 border-amber-400 overflow-hidden'>
-        <img
-          className='w-full h-full object-cover'
-          src="/itemImage.jpg"
-          alt="Thumbnail"
-        />
+    <div className="flex gap-3 mx-4 my-3">
+      <div className="h-20 w-20 overflow-hidden rounded-xl border-2 border-amber-400">
+        <img src={image} alt="Thumbnail" className="h-full w-full object-cover" />
       </div>
 
-      <button className='w-20 h-20 rounded-xl border-2 border-dashed border-zinc-300 flex flex-col items-center justify-center gap-1 text-zinc-500 bg-zinc-100'>
-        <Plus strokeWidth={2} size={18} />
-        <span className='text-[10px] font-medium'>Add Photo</span>
+      <button className="flex h-20 w-20 flex-col items-center justify-center gap-1 rounded-xl border-2 border-dashed border-zinc-300 text-zinc-500">
+        <Plus size={18} strokeWidth={2} />
+        <span className="text-[10px] font-medium">Add Photo</span>
       </button>
     </div>
   );

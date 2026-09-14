@@ -1,25 +1,52 @@
 import React from "react";
-import { Trash2, Crop } from "lucide-react";
+import { Trash2, Maximize2, Minimize2 } from "lucide-react";
 
-const ImagePreview = () => {
+const ImagePreview = ({ image, isZoomed, onToggleZoom, onDelete }) => {
   return (
-    <div className='relative mx-4 my-3'>
-      <div className='w-full aspect-square rounded-2xl overflow-auto overscroll-contain bg-zinc-100'>
-        <img
-          className='w-full h-auto'
-          src="/itemImage.jpg"
-          alt="Captured product"
-        />
+    <>
+      <div className="relative mx-4 my-3">
+        <div className="relative h-[45vh] w-full overflow-hidden rounded-2xl bg-black">
+          <img src={image} alt="Captured product" className="h-full w-full object-cover" />
+        </div>
+
+        <button
+          onClick={onDelete}
+          className="absolute top-3 right-3 flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-md"
+        >
+          <Trash2 size={18} strokeWidth={2} />
+        </button>
+
+        <button
+          onClick={onToggleZoom}
+          className="absolute bottom-3 right-3 flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-md"
+        >
+          <Maximize2 size={18} strokeWidth={2} />
+        </button>
       </div>
 
-      <button className='absolute top-3 right-3 bg-white rounded-full p-2.5 shadow-md'>
-        <Trash2 strokeWidth={2} size={18} />
-      </button>
+      {isZoomed && (
+        <div
+          onClick={onToggleZoom}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-500/60 backdrop-blur-sm"
+        >
+          <img
+            src={image}
+            alt="Zoomed product"
+            className="max-h-[85vh] max-w-[90vw] object-contain rounded-2xl"
+          />
 
-      <button className='absolute bottom-3 right-3 bg-white rounded-full p-2.5 shadow-md'>
-        <Crop strokeWidth={2} size={18} />
-      </button>
-    </div>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onToggleZoom();
+            }}
+            className="absolute top-6 right-6 flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-md"
+          >
+            <Minimize2 size={18} strokeWidth={2} />
+          </button>
+        </div>
+      )}
+    </>
   );
 };
 

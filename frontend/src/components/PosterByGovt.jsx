@@ -12,4 +12,3 @@ const PosterByGovt = () => {
 }
 
 export default PosterByGovt
-

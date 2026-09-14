@@ -15,7 +15,7 @@ const QuickActions = () => {
 
 
         <div className="flex  flex-col items-center ">
-          <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-lg bg-primary border">
+          <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-lg bg-primary  shadow-sm border border-gray-500">
             <Scale size={30} strokeWidth={1.3} />
           </div>
 
@@ -27,7 +27,7 @@ const QuickActions = () => {
 
 
         <div className="flex flex-col items-center   ">
-          <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-lg bg-primary border ">
+          <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-lg bg-primary shadow-sm border border-gray-500 ">
             <CircleAlert size={30} strokeWidth={1.5} />
           </div>
 
@@ -36,7 +36,7 @@ const QuickActions = () => {
           </p>
         </div>
         <div className="flex  flex-col items-center  ">
-          <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-lg bg-primary border">
+          <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-lg bg-primary shadow-sm border border-gray-500">
             <Book  size={30} strokeWidth={1.5} />
           </div>
 
@@ -47,7 +47,7 @@ const QuickActions = () => {
 
 
         <div className="flex flex-col items-center  ">
-          <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-lg bg-primary border">
+          <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-lg bg-primary shadow-sm border border-gray-500">
             <RefreshCcw size={30} strokeWidth={1.5} />
           </div>
 
