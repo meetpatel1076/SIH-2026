@@ -24,8 +24,12 @@ const ImageReviewPage = () => {
   };
 
   const handleAnalyze = () => {
-    console.log("Image ready for analysis:", image);
-  };
+  navigate("/result", {
+    state: {
+      image: image,
+    },
+  });
+};
 
   if (!image) {
     return (
