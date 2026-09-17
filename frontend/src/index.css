@@ -8,8 +8,46 @@
 }
 
 body {
-   
   font-family: "Inter", sans-serif;
   background-color: #FBFCFE;
 }
+
 ::-webkit-scrollbar { display: none; }
+
+@keyframes pendulum-swing {
+  0%, 100% {
+    transform: rotate(-24deg);
+  }
+  50% {
+    transform: rotate(24deg);
+  }
+}
+
+@keyframes dot-bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-7px);
+    opacity: 1;
+  }
+}
+
+@keyframes float-a {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(8px, -14px) rotate(6deg);
+  }
+}
+
+@keyframes float-b {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-10px, 12px) rotate(-5deg);
+  }
+}

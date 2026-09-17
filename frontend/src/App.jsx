@@ -6,6 +6,8 @@ import CameraPage from './pages/CameraPage'
 import ImageReviewPage from './pages/ImageReviewPage'
 import ResultPage from './pages/ResultPage'
 
+import LoadingScreen from './components/LoadingScreen'
+
 const App = () => {
   return (
     <div>
