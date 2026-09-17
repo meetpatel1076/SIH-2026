@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import NavbarTop from "../components/NavbarTop";
 import ImagePageHeader from "../components/ImagePageHeader";
 import ImagePreview from "../components/ImagePreview";
-import ImageThumbnail from "../components/ImageThumbnail";
 import ImageStatus from "../components/ImageStatus";
 import ImageActionButtons from "../components/ImageActionButton";
 import LoadingScreen from "../components/LoadingScreen";
+import { analyzeProduct } from "../Api/inspectionApi";
+import { dataUrlToFile } from "../utils/imageToFile";
 
 const ImageReviewPage = () => {
   const location = useLocation();
@@ -25,23 +25,38 @@ const ImageReviewPage = () => {
     navigate("/camera");
   };
 
-  const handleAnalyze = () => {
-  setIsAnalyzing(true);
+  const handleAnalyze = async () => {
+    try {
 
-  setTimeout(() => {
-    navigate("/result", { state: { image } });
-  }, 3000);
-};
+      setIsAnalyzing(true);
 
-  if(isAnalyzing){
-    return <LoadingScreen/>;
-  }
+      const file = dataUrlToFile(image, "inspection.jpg");
+      const result = await analyzeProduct(file);
+      console.log("Backend result:", result);
 
+      navigate("/result", {
+        state: {
+          image: image,
+          result: result,
+        },
+      });
+
+    } catch (error) {
+      console.error("Analysis failed:", error);
+      alert("Failed to analyze the package. Please try again.");
+
+    } finally {
+      setIsAnalyzing(false);
+    }
+  };
+
+  // No image
   if (!image) {
     return (
       <div className="flex min-h-dvh items-center justify-center">
         <div className="text-center">
           <p className="text-gray-600">No image found.</p>
+
           <button
             onClick={() => navigate("/camera")}
             className="mt-4 rounded-full bg-amber-400 px-6 py-3 font-semibold"
@@ -53,9 +68,13 @@ const ImageReviewPage = () => {
     );
   }
 
+  // ONLY show loading AFTER Analyze is clicked
+  if (isAnalyzing) {
+    return <LoadingScreen />;
+  }
+
   return (
     <div className="flex h-dvh flex-col overflow-y-auto pb-24">
-      {/* <NavbarTop /> */}
 
       <ImagePageHeader onBack={() => navigate(-1)} />
 
@@ -66,11 +85,13 @@ const ImageReviewPage = () => {
         onDelete={handleDelete}
       />
 
-      {/* <ImageThumbnail image={image} /> */}
-
       <ImageStatus />
 
-      <ImageActionButtons onRetake={handleRetake} onAnalyze={handleAnalyze} />
+      <ImageActionButtons
+        onRetake={handleRetake}
+        onAnalyze={handleAnalyze}
+      />
+
     </div>
   );
 };
