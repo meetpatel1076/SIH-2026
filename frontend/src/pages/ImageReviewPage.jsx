@@ -49,7 +49,7 @@ const ImageReviewPage = () => {
 
   return (
     <div className="flex h-dvh flex-col overflow-y-auto pb-24">
-      <NavbarTop />
+      {/* <NavbarTop /> */}
 
       <ImagePageHeader onBack={() => navigate(-1)} />
 
@@ -60,7 +60,7 @@ const ImageReviewPage = () => {
         onDelete={handleDelete}
       />
 
-      <ImageThumbnail image={image} />
+      {/* <ImageThumbnail image={image} /> */}
 
       <ImageStatus />
 

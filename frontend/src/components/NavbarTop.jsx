@@ -5,10 +5,10 @@ const NavbarTop = () => {
     return (
         <div className='flex justify-between my-4 mx-1'>
             <div className='bg-red-30 flex justify-center gap-2 items-center '>
-                <div ><img className='h-10' src="/MainLogo.png" alt="" /></div>
+                <div ><img className='h-10' src="/MainLogo2.png" alt="" /></div>
                 <div>
-                    <div className='text-[17px] font-bold'>VeriScan</div>
-                    <div className='text-[9.5px] font-bold text-zinc-500'>BHARAT PORTAL</div>
+                    <div className='text-[16px] font-bold'>NIRIKSHAK</div>
+                    <div className='text-[8.5px] font-bold text-zinc-500'>LEGAL METROLOGY ENFORCEMENT</div>
                 </div>
             </div>
             <div className='flex gap-3 justify-center items-center'>

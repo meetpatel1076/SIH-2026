@@ -1,6 +1,6 @@
 import React from 'react'
 import NavbarTop from '../components/NavbarTop'
-import GreetingSection from '../components/GreetingSection'
+
 import TodayStats from '../components/TodayStats'
 import QuickActions from '../components/QuickActions'
 import RecentInspections from '../components/RecentInspections'

@@ -15,7 +15,7 @@ const ImageActionButtons = ({ onRetake, onAnalyze }) => {
 
         <button
           onClick={onAnalyze}
-          className="flex-1 flex items-center justify-center gap-2 rounded-full bg-amber-400 py-3 font-semibold text-zinc-900"
+          className="flex-1 flex items-center justify-center gap-2 rounded-full bg-primary py-3 font-semibold text-zinc-900"
         >
           Analyze Package
           <ArrowRight size={18} strokeWidth={3} />
