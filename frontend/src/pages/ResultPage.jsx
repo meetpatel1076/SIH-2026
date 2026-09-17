@@ -1,4 +1,5 @@
 import React from "react";
+import {useState , useEffect} from "react";
 import { ArrowLeft } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import DeclarationCheck from "../components/DeclarationCheck";
@@ -6,8 +7,7 @@ import ImagesUsed from "../components/ImagesUsed";
 import ProductSummary from "../components/ProductSummary";
 import ResultActions from "../components/ResultActions";
 import NavbarTop from "../components/NavbarTop";
-
-
+import LoadingScreen from "../components/LoadingScreen";
 
 
 const ResultPage = () => {
@@ -15,7 +15,19 @@ const ResultPage = () => {
     const navigate = useNavigate();
 
     const image = location.state?.image;
+    const [isLoading, setIsLoading] = useState(true);
 
+    useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
 
     if (!image) {

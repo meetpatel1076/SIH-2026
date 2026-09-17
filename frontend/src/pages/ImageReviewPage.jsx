@@ -6,12 +6,14 @@ import ImagePreview from "../components/ImagePreview";
 import ImageThumbnail from "../components/ImageThumbnail";
 import ImageStatus from "../components/ImageStatus";
 import ImageActionButtons from "../components/ImageActionButton";
+import LoadingScreen from "../components/LoadingScreen";
 
 const ImageReviewPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const [isZoomed, setIsZoomed] = useState(false);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   const image = location.state?.image;
 
@@ -24,12 +26,16 @@ const ImageReviewPage = () => {
   };
 
   const handleAnalyze = () => {
-  navigate("/result", {
-    state: {
-      image: image,
-    },
-  });
+  setIsAnalyzing(true);
+
+  setTimeout(() => {
+    navigate("/result", { state: { image } });
+  }, 3000);
 };
+
+  if(isAnalyzing){
+    return <LoadingScreen/>;
+  }
 
   if (!image) {
     return (
