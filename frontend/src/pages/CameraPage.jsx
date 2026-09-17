@@ -13,8 +13,46 @@ const CameraPage = () => {
   const startCamera = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: true,
+        video: {
+          facingMode: {
+            ideal: "environment",
+          },
+          width: {
+            ideal: 1920,
+          },
+          height: {
+            ideal: 1080,
+          },
+        },
+        audio: false,
       });
+
+      const videoTrack = stream.getVideoTracks()[0];
+
+      // Try to enable continuous autofocus
+      // Only if the device/browser supports it.
+      try {
+        const capabilities = videoTrack.getCapabilities();
+
+        if (
+          capabilities.focusMode &&
+          capabilities.focusMode.includes("continuous")
+        ) {
+          await videoTrack.applyConstraints({
+            advanced: [
+              {
+                focusMode: "continuous",
+              },
+            ],
+          });
+
+          console.log("Continuous autofocus enabled");
+        } else {
+          console.log("Continuous autofocus not supported");
+        }
+      } catch (focusError) {
+        console.log("Could not enable autofocus:", focusError);
+      }
 
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
@@ -32,17 +70,24 @@ const CameraPage = () => {
     return () => {
       if (videoRef.current?.srcObject) {
         const tracks = videoRef.current.srcObject.getTracks();
+
         tracks.forEach((track) => track.stop());
+
+        videoRef.current.srcObject = null;
       }
     };
   }, [capturedImage]);
-
 
   const capturePhoto = () => {
     const video = videoRef.current;
     const canvas = canvasRef.current;
 
     if (!video || !canvas) return;
+
+    if (video.readyState < 2) {
+      console.log("Camera is not ready yet.");
+      return;
+    }
 
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
@@ -57,15 +102,14 @@ const CameraPage = () => {
       canvas.height
     );
 
-    const image = canvas.toDataURL("image/jpeg");
+    const image = canvas.toDataURL("image/jpeg", 0.95);
 
     setCapturedImage(image);
   };
 
-
- const retakePhoto = () => {
-  setCapturedImage(null);
-};
+  const retakePhoto = () => {
+    setCapturedImage(null);
+  };
 
   const usePhoto = () => {
     navigate("/photo-review", {
@@ -78,7 +122,7 @@ const CameraPage = () => {
   return (
     <div className="min-h-dvh bg-gray-50">
 
-
+      {/* Header */}
       <div className="flex items-center gap-3 px-4 py-4">
 
         <button
@@ -93,31 +137,27 @@ const CameraPage = () => {
             Capture Product Image
           </h1>
 
-          <p className="text-xs text-gray-500 ">
+          <p className="text-xs text-gray-500">
             Tip: Clear image gives fast result
           </p>
         </div>
 
       </div>
 
+      {/* Camera / Preview */}
       <div className="px-3">
 
         {!capturedImage ? (
 
           <div className="relative h-[65vh] w-full overflow-hidden rounded-3xl bg-black">
 
-
             <video
               ref={videoRef}
               autoPlay
               playsInline
+              muted
               className="h-full w-full object-cover"
             />
-
-
-            <div />
-
-
 
           </div>
 
@@ -137,7 +177,7 @@ const CameraPage = () => {
 
       </div>
 
-
+      {/* Camera Controls */}
       {!capturedImage ? (
 
         <div className="flex flex-col items-center gap-2 py-6">
@@ -179,6 +219,7 @@ const CameraPage = () => {
 
       )}
 
+      {/* Hidden canvas */}
       <canvas
         ref={canvasRef}
         className="hidden"
