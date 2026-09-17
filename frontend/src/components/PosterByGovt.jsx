@@ -2,9 +2,9 @@ import React from 'react'
 
 const PosterByGovt = () => {
   return (
-    <div className="max-h-[15vh]">
+    <div className="max-h-[vh]">
   <img
-    src='/AppAd.png'
+    src='/AppAd.jpg'
     className="h-full w-full object-cover"
   />
 </div>

@@ -15,10 +15,10 @@ const InspectionActions = () => {
 
     
     return (
-        <div className='  shrink-0 sticky bottom-0 '>
+        <div className='  shrink-0 sticky bottom-0 text-gray-800 '>
 
-            <div className='mb-3 px-2 pt-2  text-[16px] font-semibold text-gray-900'>Start Inspections</div>
-            <div className='flex justify-center items-center  mb-3 mx-4 gap-4 mr-7'>
+            {/* <div className="flex justify-center"><div className='mb-3 px-2 pt-2  text-[12px] font-semibold text-amber-300'>Start Inspections</div></div> */}
+            <div className='flex justify-center items-center  my-3 mx-4 gap-4 mr-7'>
                 <div className='flex items-center  gap-4 rounded-full px-4 bg-black text-white h-18 w-55' >
                     <Images size={34} strokeWidth={1.5} />
                     <div className="text-[18px]">Upload Images</div>
