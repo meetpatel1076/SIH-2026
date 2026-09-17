@@ -14,7 +14,7 @@ const ResultPage = () => {
   const image = location.state?.image;
   const result = location.state?.result;
 
-  console.log("Result Page data:", result);
+
 
   if (!image || !result) {
     return (
@@ -44,8 +44,7 @@ const ResultPage = () => {
 
         <ProductSummary
           image={image}
-          result={result}
-        />
+          result={result}/>
 
         <DeclarationCheck
           result={result}

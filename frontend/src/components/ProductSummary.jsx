@@ -1,7 +1,15 @@
 import React from "react";
-import { ScanLine } from "lucide-react";
 
-const ProductSummary = ({ image }) => {
+const ProductSummary = ({ image, result }) => {
+
+  const compliance = result?.compliance || {};
+
+  const totalDeclarations = Object.keys(compliance).length;
+
+  const verifiedDeclarations = Object.values(compliance).filter(
+    (status) => status === "PRESENT"
+  ).length;
+
   return (
     <div className="flex gap-4 px-4 pt-5">
 
@@ -20,13 +28,18 @@ const ProductSummary = ({ image }) => {
         <div className="flex items-start justify-between gap-2">
 
           <div>
-            <h1 className="text-lg font-bold leading-6 text-gray-900">
+
+            {/* Product Name */}
+            <h1 className="text-lg mt-2 font-bold leading-6 text-gray-900">
               Amul Taaza Toned Milk
             </h1>
 
-            <p className="mt-1 text-sm text-gray-500">
-              Amul
+            
+            <p className="mt-3 text-sm font-medium text-green-600">
+               {verifiedDeclarations} of {totalDeclarations} declarations verified
             </p>
+            
+
           </div>
 
         </div>

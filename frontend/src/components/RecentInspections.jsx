@@ -19,7 +19,7 @@ const RecentInspections = () => {
                         <div className='flex justify-center gap-2 items-center'>
 
                             <div className='flex flex-col justify-center '>
-                                <div className=' text-[13px] font-semibold text-gray-900'>Amul Gold 1L Milk</div>
+                                <div className=' text-[13px] font-semibold text-gray-900'>Amul Taaza Milk</div>
                                 <div className='text-zinc-500 font-semibold text-[12px]'>10:42 AM</div>
 
                             </div>
@@ -27,7 +27,7 @@ const RecentInspections = () => {
                         </div>
                         <div className='flex flex-col gap-1'>
                             <div className='text-[13px] font-semibold text-gray-900'>Compliant</div>
-                            <div className='text-zinc-500 font-semibold text-[10px]'>Batch 88A</div>
+                            <div className='text-zinc-500 font-semibold text-[10px]'>Batch 56BB</div>
                         </div>
 
                     </div>
@@ -39,13 +39,13 @@ const RecentInspections = () => {
                         <div className='flex justify-center gap-2 items-center'>
 
                             <div className='flex flex-col justify-center '>
-                                <div className=' text-[13px] font-semibold text-gray-900'>A-Mulla G-Milk</div>
-                                <div className='text-zinc-500 font-semibold text-[12px]'>10:42 AM</div>
+                                <div className=' text-[13px] font-semibold text-gray-900'>Maggii 2-Minute Noodles</div>
+                                <div className='text-zinc-500 font-semibold text-[12px]'>6:42 PM</div>
                             </div>
                         </div>
                         <div className='flex flex-col justify-center items-center gap-1'>
                             <div className='text-[13px] font-semibold text-red-600'>Non-Compliant</div>
-                            <div className='text-red-500 font-semibold text-[10px]'>Batch 6969#</div>
+                            <div className='text-red-500 font-semibold text-[10px]'>Batch 4373#</div>
                         </div>
 
 
@@ -59,13 +59,13 @@ const RecentInspections = () => {
                         <div className='flex justify-center gap-2 items-center'>
 
                             <div className='flex flex-col justify-center '>
-                                <div className=' text-[13px] font-semibold text-gray-900'>Amul Gold 1L Milk</div>
+                                <div className=' text-[13px] font-semibold text-gray-900'>Parle-G Biscuits</div>
                                 <div className='text-zinc-500 font-semibold text-[12px]'>10:42 AM</div>
                             </div>
                         </div>
                         <div className='flex flex-col gap-1'>
                             <div className='text-[13px] font-semibold text-gray-900'>Compliant</div>
-                            <div className='text-zinc-500 font-semibold text-[10px]'>Batch 88A</div>
+                            <div className='text-zinc-500 font-semibold text-[10px]'>Batch 749D</div>
                         </div>
                     </div>
                     <div className='flex justify-center'> <div className='h-[0.25px] w-full bg-gray-400 mx-2 '></div></div>
@@ -78,7 +78,7 @@ const RecentInspections = () => {
 
                             <div className='flex flex-col justify-center '>
                                 <div className=' text-[13px] font-semibold text-gray-900'>Amul Gold 1L Milk</div>
-                                <div className='text-zinc-500 font-semibold text-[12px]'>10:42 AM</div>
+                                <div className='text-zinc-500 font-semibold text-[12px]'>11:02 AM</div>
                             </div>
                         </div>
                         <div className='flex flex-col gap-1'>
@@ -95,13 +95,13 @@ const RecentInspections = () => {
                         <div className='flex justify-center gap-2 items-center'>
 
                             <div className='flex flex-col justify-center '>
-                                <div className=' text-[13px] font-semibold text-gray-900'>Amul Gold 1L Milk</div>
-                                <div className='text-zinc-500 font-semibold text-[12px]'>10:42 AM</div>
+                                <div className=' text-[13px] font-semibold text-gray-900'>Britannia Good Day</div>
+                                <div className='text-zinc-500 font-semibold text-[12px]'>01:42 PM</div>
                             </div>
                         </div>
                         <div className='flex flex-col gap-1'>
                             <div className='text-[13px] font-semibold text-gray-900'>Compliant</div>
-                            <div className='text-zinc-500 font-semibold text-[10px]'>Batch 88A</div>
+                            <div className='text-zinc-500 font-semibold text-[10px]'>Batch 56CD</div>
                         </div>
                     </div>
                     <div className='flex justify-center'> <div className='h-[0.25px] w-full bg-gray-400 mx-2 '></div></div>

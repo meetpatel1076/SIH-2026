@@ -32,7 +32,7 @@ const ImageReviewPage = () => {
 
       const file = dataUrlToFile(image, "inspection.jpg");
       const result = await analyzeProduct(file);
-      console.log("Backend result:", result);
+     
 
       navigate("/result", {
         state: {
@@ -50,7 +50,7 @@ const ImageReviewPage = () => {
     }
   };
 
-  // No image
+  
   if (!image) {
     return (
       <div className="flex min-h-dvh items-center justify-center">
@@ -68,7 +68,7 @@ const ImageReviewPage = () => {
     );
   }
 
-  // ONLY show loading AFTER Analyze is clicked
+  
   if (isAnalyzing) {
     return <LoadingScreen />;
   }
