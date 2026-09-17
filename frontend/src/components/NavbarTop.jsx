@@ -1,16 +1,19 @@
 import React from 'react'
 import { Bell, UserRound } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const NavbarTop = () => {
     return (
         <div className='flex justify-between my-4 mx-1'>
-            <div className='bg-red-30 flex justify-center gap-2 items-center '>
+
+            <Link to="/" className='bg-red-30 flex justify-center gap-2 items-center'>
                 <div ><img className='h-10' src="/MainLogo2.png" alt="" /></div>
                 <div>
                     <div className='text-[16px] font-bold'>NIRIKSHAK</div>
                     <div className='text-[8.5px] font-bold text-zinc-500'>LEGAL METROLOGY ENFORCEMENT</div>
-                </div>
-            </div>
+                </div>            
+            </Link>
+    
             <div className='flex gap-3 justify-center items-center'>
                 <div className='bg-white rounded-full drop-shadow-sm p-2.5'><Bell strokeWidth={2} size={16} /></div>
                 <div className='bg-amber-700 text-white rounded-full drop-shadow-sm p-2'><UserRound strokeWidth={1.5} size={23} /></div>
