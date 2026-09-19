@@ -177,7 +177,7 @@ const CameraPage = () => {
 
       </div>
 
-      {/* Camera Controls */}
+      
       {!capturedImage ? (
 
         <div className="flex flex-col items-center gap-2 py-6">
@@ -219,7 +219,7 @@ const CameraPage = () => {
 
       )}
 
-      {/* Hidden canvas */}
+     
       <canvas
         ref={canvasRef}
         className="hidden"

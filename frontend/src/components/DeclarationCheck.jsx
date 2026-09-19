@@ -1,12 +1,6 @@
 import React from "react";
-import {
-  Scale,
-  CalendarDays,
-  IndianRupee,
-  FileText,
-  Check,
-  X,
-} from "lucide-react";
+import { FileText, Check, Minus } from "lucide-react";
+
 
 const declarations = [
   {
@@ -49,6 +43,7 @@ const DeclarationCheck = ({ result }) => {
         </h2>
       </div>
 
+
       <div className="border border-gray-200 bg-white px-2">
 
         {declarations.map((item, index) => {
@@ -64,11 +59,10 @@ const DeclarationCheck = ({ result }) => {
           return (
             <div
               key={item.label}
-              className={`flex items-center gap-3 py-4 ${
-                index !== declarations.length - 1
+              className={`flex items-center gap-3 py-4 ${index !== declarations.length - 1
                   ? "border-b border-gray-100"
                   : ""
-              }`}
+                }`}
             >
 
               {/* ICON */}
@@ -94,11 +88,10 @@ const DeclarationCheck = ({ result }) => {
 
               {/* STATUS */}
               <div
-                className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${
-                  isPresent
+                className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${isPresent
                     ? "bg-green-100"
-                    : "bg-red-100"
-                }`}
+                    : "bg-gray-200"
+                  }`}
               >
                 {isPresent ? (
                   <Check
@@ -107,10 +100,10 @@ const DeclarationCheck = ({ result }) => {
                     className="text-green-700"
                   />
                 ) : (
-                  <X
+                  <Minus
                     size={17}
                     strokeWidth={2.5}
-                    className="text-red-600"
+                    className="text-gray-700"
                   />
                 )}
               </div>
@@ -120,6 +113,10 @@ const DeclarationCheck = ({ result }) => {
         })}
 
       </div>
+      <p className="m-3 text-xs text-gray-500">
+        Please verify missing or unclear details manually. OCR may occasionally
+        misread package information.
+      </p>
     </div>
   );
 };

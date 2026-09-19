@@ -132,7 +132,7 @@ const LoadingScreen = () => {
           "radial-gradient(circle at 50% 38%, rgba(251,191,36,0.06), transparent 55%), radial-gradient(circle at 50% 100%, rgba(0,0,0,0.03), transparent 60%), #ffffff",
       }}
     >
-      {/* faint floating background icons */}
+ 
       {bgIcons.map((icon, idx) => (
         <div
           key={idx}
@@ -145,7 +145,7 @@ const LoadingScreen = () => {
 
       <div className="relative z-10 flex flex-col items-center justify-center gap-1">
         <div className="relative" style={{ width: "240px", height: "230px" }}>
-          {/* fixed scanner housing */}
+     
           <div
             className="absolute left-1/2 top-0 z-3 -translate-x-1/2 rounded-lg"
             style={{
@@ -172,7 +172,7 @@ const LoadingScreen = () => {
             />
           </div>
 
-          {/* pivoting beam arm */}
+     
           <div
             className="absolute left-1/2 z-2"
             style={{
@@ -195,7 +195,6 @@ const LoadingScreen = () => {
             />
           </div>
 
-          {/* ground shadow */}
           <div
             className="absolute left-1/2 z-1 -translate-x-1/2 rounded-full"
             style={{
@@ -206,7 +205,7 @@ const LoadingScreen = () => {
             }}
           />
 
-          {/* product platform */}
+       
           <div className="absolute bottom-[34px] left-1/2 flex h-[100px] w-[90px] -translate-x-1/2 items-end justify-center">
             <div className="absolute bottom-0 transition-all duration-300 ease-in-out">
               {products[productIndex]}

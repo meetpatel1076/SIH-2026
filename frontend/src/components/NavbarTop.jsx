@@ -6,7 +6,7 @@ const NavbarTop = () => {
     return (
         <div className='flex justify-between my-4 mx-1'>
 
-            <Link to="/" className='bg-red-30 flex justify-center gap-2 items-center'>
+            <Link to="/" className=' flex justify-center gap-2 items-center'>
                 <div ><img className='h-10' src="/MainLogo2.png" alt="" /></div>
                 <div>
                     <div className='text-[16px] font-bold'>NIRIKSHAK</div>
