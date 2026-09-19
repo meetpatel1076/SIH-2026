@@ -19,7 +19,6 @@ const HomePage = () => {
       <div className="mx-2 flex min-h-0 flex-1 flex-col">
 
         <QuickActions />
-
    
         <div className="min-h-0 flex-1 overflow-y-auto">
           <RecentInspections />
