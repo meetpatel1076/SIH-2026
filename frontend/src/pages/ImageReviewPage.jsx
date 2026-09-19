@@ -16,14 +16,23 @@ const ImageReviewPage = () => {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   const image = location.state?.image;
+  const source = location.state?.source;
 
-  const handleRetake = () => {
+const handleRetake = () => {
+  if (source === "gallery") {
+    navigate("/");
+  } else {
     navigate("/camera");
-  };
+  }
+};
 
-  const handleDelete = () => {
+const handleDelete = () => {
+  if (source === "gallery") {
+    navigate("/");
+  } else {
     navigate("/camera");
-  };
+  }
+};
 
   const handleAnalyze = async () => {
     try {

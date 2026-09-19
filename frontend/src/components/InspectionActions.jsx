@@ -17,7 +17,7 @@ const InspectionActions = () => {
     const reader = new FileReader();
     reader.onload = () => {
       navigate("/photo-review", {
-        state: { image: reader.result },
+        state: { image: reader.result, source: "gallery"  },
       });
     };
     reader.readAsDataURL(file);

@@ -115,6 +115,7 @@ const CameraPage = () => {
     navigate("/photo-review", {
       state: {
         image: capturedImage,
+        source: "camera",
       },
     });
   };
